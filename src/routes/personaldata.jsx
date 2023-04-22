@@ -19,7 +19,7 @@ for (let i = 1; i < 32; i++) {
 const Personaldata = () => {
   return (
     <>
-      <div className="m-4 pl-4 border-4 border-sky-500">
+      <div className="m-4 pl-4 pr-4 border-4 border-sky-500">
         <div className="flex justify-center m-4 grid">
           <h1>お客様の情報を入力してください</h1>
         </div>
@@ -54,7 +54,7 @@ const Personaldata = () => {
       </div>
 
       <div className="flex justify-center">
-        <Link to="question1">
+        <Link to="/question1">
           <button className="h-12 px-2 m-2 text-lg text-white bg-green-500">
             {"次へ進む  >"}
           </button>
