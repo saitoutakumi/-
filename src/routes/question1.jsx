@@ -77,7 +77,7 @@ const Question1 = () => {
         <div className="flex justify-center">
           <Link to="/">
             <button className="h-12 px-2 m-2 text-lg text-white bg-green-500">
-              {"前へ戻る  >"}
+              {"<  前へ戻る"}
             </button>
           </Link>
         </div>
