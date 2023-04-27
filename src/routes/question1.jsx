@@ -9,7 +9,6 @@ const Question1 = () => {
         </div>
 
         <div>
-          <p>テスト</p>
           <p>現在、生命保険に加入されていますか？</p>
           <div className="mt-4">
             <input
