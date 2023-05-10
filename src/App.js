@@ -2,6 +2,7 @@ import { useState } from "react";
 import Personaldata from "./routes/personaldata";
 import Question1 from "./routes/question1";
 import Consultation from "./routes/consultation";
+import Confirmation from "./routes/confirmation";
 import { Route, Routes } from "react-router-dom";
 
 // console.log(
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/" element={<Personaldata />} />
           <Route path="/question1" element={<Question1 />} />
           <Route path="/consultation" element={<Consultation />} />
+          <Route path="/confirmation" element={<Confirmation />} />
         </Routes>
       </div>
     </>
