@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import { useAnswerContext } from "../AnswerProvider";
 
 const Question1 = () => {
-  const [answer1, setAnswer1] = useState(localStorage.getItem("answer1") || "");
-  const [answer2, setAnswer2] = useState(localStorage.getItem("answer2") || "");
-  const [answer3, setAnswer3] = useState(localStorage.getItem("answer3") || "");
+  const { answer1, setAnswer1, answer2, setAnswer2, answer3, setAnswer3 } =
+    useAnswerContext();
 
   const handleChangeAnswer1 = (answer1) => {
     setAnswer1(answer1.target.value);
@@ -20,12 +19,6 @@ const Question1 = () => {
     setAnswer3(answer3.target.value);
     console.log(answer3.target.value);
   };
-
-  useEffect(() => {
-    localStorage.setItem("answer1", answer1);
-    localStorage.setItem("answer2", answer2);
-    localStorage.setItem("answer3", answer3);
-  }, [answer1, answer2, answer3]);
 
   return (
     <>

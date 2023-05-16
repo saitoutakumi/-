@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom";
+import { useAnswerContext } from "../AnswerProvider";
 
-const confirmation = () => {
-  const gender = localStorage.getItem("gender");
-  const birthYearObj = JSON.parse(localStorage.getItem("birthYear"));
-  const birthYear = birthYearObj.label;
-  const birthMonthObj = JSON.parse(localStorage.getItem("birthMonth"));
-  const birthMonth = birthMonthObj.label;
-  const birthDayObj = JSON.parse(localStorage.getItem("birthDay"));
-  const birthDay = birthDayObj.label;
-  const answer1 = localStorage.getItem("answer1");
-  const answer2 = localStorage.getItem("answer2");
-  const answer3 = localStorage.getItem("answer3");
-  const comment = localStorage.getItem("comment");
+const Confirmation = () => {
+  const {
+    gender,
+    birthYear,
+    birthMonth,
+    birthDay,
+    answer1,
+    answer2,
+    answer3,
+    comment,
+  } = useAnswerContext();
 
   return (
     <>
@@ -27,7 +27,7 @@ const confirmation = () => {
         <div className="mt-[20px]">
           <p>-生年月日-</p>
           <p>
-            {birthYear}年 {birthMonth}月 {birthDay}日
+            {birthYear.label}年 {birthMonth.label}月 {birthDay.label}日
           </p>
         </div>
         <div className="mt-[20px]">
@@ -63,4 +63,4 @@ const confirmation = () => {
     </>
   );
 };
-export default confirmation;
+export default Confirmation;

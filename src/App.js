@@ -1,31 +1,22 @@
-import { useState } from "react";
-import Personaldata from "./routes/personaldata";
+import Personal from "./routes/personal";
 import Question1 from "./routes/question1";
 import Consultation from "./routes/consultation";
 import Confirmation from "./routes/confirmation";
 import { Route, Routes } from "react-router-dom";
-
-// console.log(
-//   new Intl.DateTimeFormat("ja-JP-u-ca-japanese", {
-//     year: "numeric",
-//     month: "2-digit",
-//   }).format(new Date())
-// );
+import { AnswerProvider } from "./AnswerProvider";
 
 const App = () => {
-  // const [birthYear, setBirthYear] = useState([]);
-  // const [birthMonth, setBirthMonth] = useState();
-  // const [birthDay, setBirthDay] = useState();
-
   return (
     <>
       <div className="App">
-        <Routes>
-          <Route path="/" element={<Personaldata />} />
-          <Route path="/question1" element={<Question1 />} />
-          <Route path="/consultation" element={<Consultation />} />
-          <Route path="/confirmation" element={<Confirmation />} />
-        </Routes>
+        <AnswerProvider>
+          <Routes>
+            <Route path="/" element={<Personal />} />
+            <Route path="/question1" element={<Question1 />} />
+            <Route path="/consultation" element={<Consultation />} />
+            <Route path="/confirmation" element={<Confirmation />} />
+          </Routes>
+        </AnswerProvider>
       </div>
     </>
   );

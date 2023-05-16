@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Select from "react-select";
-import React, { useEffect, useState } from "react";
+import { useAnswerContext } from "../AnswerProvider";
 
 const birthYearSelect = [];
 for (let i = 1900; i < 2024; i++) {
@@ -17,22 +17,22 @@ for (let i = 1; i < 32; i++) {
   birthDaySelect.push({ value: "day", label: i });
 }
 
-const PersonalData = () => {
-  const [gender, setGender] = useState(localStorage.getItem("gender") || "");
+const Personal = () => {
+  const {
+    gender,
+    setGender,
+    birthYear,
+    setBirthYear,
+    birthMonth,
+    setBirthMonth,
+    birthDay,
+    setBirthDay,
+  } = useAnswerContext();
+
   const handleChangeGender = (gender) => {
     setGender(gender.target.value);
     console.log(gender.target.value);
   };
-
-  const [birthYear, setBirthYear] = useState(
-    JSON.parse(localStorage.getItem("birthYear")) || null
-  );
-  const [birthMonth, setBirthMonth] = useState(
-    JSON.parse(localStorage.getItem("birthMonth")) || null
-  );
-  const [birthDay, setBirthDay] = useState(
-    JSON.parse(localStorage.getItem("birthDay")) || null
-  );
 
   const handleChangeBirthYear = (selectedYear) => {
     setBirthYear(selectedYear);
@@ -49,18 +49,6 @@ const PersonalData = () => {
     console.log(selectedDay);
   };
 
-  // 入力された性別を保持
-  useEffect(() => {
-    localStorage.setItem("gender", gender);
-  });
-
-  // 入力された生年月日を保存
-  useEffect(() => {
-    localStorage.setItem("birthYear", JSON.stringify(birthYear));
-    localStorage.setItem("birthMonth", JSON.stringify(birthMonth));
-    localStorage.setItem("birthDay", JSON.stringify(birthDay));
-  }, [birthYear, birthMonth, birthDay]);
-
   return (
     <>
       <div className="m-4 pl-4 pr-4 border-4 border-sky-500">
@@ -69,7 +57,6 @@ const PersonalData = () => {
         </div>
 
         <p>-性別-</p>
-
         <div className="mt-4">
           <input
             type="radio"
@@ -124,4 +111,5 @@ const PersonalData = () => {
     </>
   );
 };
-export default PersonalData;
+
+export default Personal;
