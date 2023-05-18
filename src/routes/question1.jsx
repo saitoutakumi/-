@@ -1,6 +1,25 @@
 import { Link } from "react-router-dom";
+import { useAnswerContext } from "../AnswerProvider";
 
 const Question1 = () => {
+  const { answer1, setAnswer1, answer2, setAnswer2, answer3, setAnswer3 } =
+    useAnswerContext();
+
+  const handleChangeAnswer1 = (answer1) => {
+    setAnswer1(answer1.target.value);
+    console.log(answer1.target.value);
+  };
+
+  const handleChangeAnswer2 = (answer2) => {
+    setAnswer2(answer2.target.value);
+    console.log(answer2.target.value);
+  };
+
+  const handleChangeAnswer3 = (answer3) => {
+    setAnswer3(answer3.target.value);
+    console.log(answer3.target.value);
+  };
+
   return (
     <>
       <div className="m-4 pl-4 pr-4 border-4 border-sky-500">
@@ -9,22 +28,23 @@ const Question1 = () => {
         </div>
 
         <div>
-          <p>テスト</p>
           <p>現在、生命保険に加入されていますか？</p>
           <div className="mt-4">
             <input
               type="radio"
               name="answer1"
-              value="yes"
-              // onChange={handleChange}
+              value="はい"
+              onChange={handleChangeAnswer1}
+              checked={answer1 === "はい"}
             />
             はい
             <input
               type="radio"
               name="answer1"
-              value="no"
+              value="いいえ"
               className="ml-2"
-              // onChange={handleChange}
+              onChange={handleChangeAnswer1}
+              checked={answer1 === "いいえ"}
             />
             いいえ
           </div>
@@ -37,16 +57,18 @@ const Question1 = () => {
             <input
               type="radio"
               name="answer2"
-              value="yes"
-              // onChange={handleChange}
+              value="はい"
+              onChange={handleChangeAnswer2}
+              checked={answer2 === "はい"}
             />
             はい
             <input
               type="radio"
               name="answer2"
-              value="no"
+              value="いいえ"
               className="ml-2"
-              // onChange={handleChange}
+              onChange={handleChangeAnswer2}
+              checked={answer2 === "いいえ"}
             />
             いいえ
           </div>
@@ -59,16 +81,18 @@ const Question1 = () => {
             <input
               type="radio"
               name="answer3"
-              value="yes"
-              // onChange={handleChange}
+              value="はい"
+              onChange={handleChangeAnswer3}
+              checked={answer3 === "はい"}
             />
             はい
             <input
               type="radio"
               name="answer3"
-              value="no"
+              value="いいえ"
               className="ml-2"
-              // onChange={handleChange}
+              onChange={handleChangeAnswer3}
+              checked={answer3 === "いいえ"}
             />
             いいえ
           </div>

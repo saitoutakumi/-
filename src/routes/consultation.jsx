@@ -1,6 +1,15 @@
+// 相談入力フォーム
+
 import { Link } from "react-router-dom";
+import { useAnswerContext } from "../AnswerProvider";
 
 const Consultation = () => {
+  const { comment, setComment } = useAnswerContext();
+
+  const handleCommentChange = (event) => {
+    setComment(event.target.value);
+  };
+
   return (
     <>
       <div className="m-4 pl-4 pr-4 pb-4 border-4 border-sky-500">
@@ -12,8 +21,12 @@ const Consultation = () => {
         </div>
         <div>
           <textarea
+            id="inputBox"
+            type="text"
             name="comment"
             className="text-[black] mt-[5px] border-2 w-full h-[300px]"
+            value={comment}
+            onChange={handleCommentChange}
           ></textarea>
         </div>
       </div>
@@ -26,8 +39,11 @@ const Consultation = () => {
           </Link>
         </div>
         <div className="flex justify-center">
-          <Link to="">
-            <button className="h-12 px-2 m-2 text-lg text-white bg-green-500">
+          <Link to="/confirmation">
+            <button
+              type="submit"
+              className="h-12 px-2 m-2 text-lg text-white bg-green-500"
+            >
               {"次へ進む  >"}
             </button>
           </Link>
